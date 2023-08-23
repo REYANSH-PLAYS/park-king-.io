@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Park-King - Choose Months</title>
+</head>
+<style>
+    .vip_months{
+    background-color: gold; /* Gold color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.btn{
+    background-color: gold; /* Gold color */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;  
+}
+
+</style>
+<body>
+    <img src="LOGO.jpg" alt="Stellar Shift Logo" class="logo">
+        </div>
+    <div class="container">
+        <h2>Choose the number of months:</h2>
+        <select id="VIP months-select" class="vip_months">
+            <option value="1">1 month</option>
+            <option value="2">2 months</option>
+            <option value="3">3 months</option>
+            <option value="4">4 months</option>
+            <option value="5">5 months</option>
+            <option value="6">6 months</option>
+            <!-- Add more options if needed -->
+        </select>
+        <a href="VIP checkout.html" class="btn">Checkout</a>    </div>
+
+  
+    <script>
+        // Calculate total price for VIP checkout
+        const queryParams = new URLSearchParams(window.location.search);
+        const selectedTime = queryParams.get("time");
+        const selectedVehicle = queryParams.get("vehicle");
+    
+        let totalPrice = 0;
+        if (selectedVehicle === "Normal Vehicle") {
+            totalPrice = 4500; // Normal vehicle price
+        } else if (selectedVehicle === "Electric Vehicle") {
+            totalPrice = 5000; // Electric vehicle price
+        }
+    
+        document.getElementById("vehicle-type").textContent = selectedVehicle;
+        document.getElementById("selected-time").textContent = selectedTime;
+        document.getElementById("total-price").textContent = totalPrice;
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>park_king - Choose Time</title>
+</head>
+<body>
+    <img src="LOGO.jpg" alt="Stellar Shift Logo" class="logo">
+        </div>
+    <div class="container">
+        <h2>Choose the amount of time you want to park:</h2>
+        <select id="time-select">
+            <option value="hours">Hours</option>
+            <option value="days">Days</option>
+            <option value="months">Months</option>
+        </select>
+        <button class="next-button" onclick="selectTime()">Next</button>
+    </div>
+    <script>
+        function selectTime() {
+            const selectedTime = document.getElementById("time-select").value;
+            const selectedVehicle = new URLSearchParams(window.location.search).get("vehicle");
+            
+            if (selectedTime === "hours") {
+                window.location.href = `hours.html?vehicle=${selectedVehicle}`;
+            } else if (selectedTime === "days") {
+                window.location.href = `days.html?vehicle=${selectedVehicle}`;
+            } else if (selectedTime === "months") {
+                window.location.href = `months.html?vehicle=${selectedVehicle}`;
+            }
+        }
+    </script>
+    
+</body>
+</html>

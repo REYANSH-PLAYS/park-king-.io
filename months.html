@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Park-King - Choose Months</title>
+</head>
+<body>
+    <img src="LOGO.jpg" alt="Stellar Shift Logo" class="logo">
+        </div>
+    <div class="container">
+        <h2>Choose the number of months:</h2>
+        <select id="months-select">
+            <option value="1">1 month</option>
+            <option value="2">2 months</option>
+            <option value="3">3 months</option>
+            <option value="4">4 months</option>
+            <option value="5">5 months</option>
+            <option value="6">6 months</option>
+            <!-- Add more options if needed -->
+        </select>
+        <button class="next-button" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script>
+        // Get selected vehicle type from URL query params
+        const queryParams = new URLSearchParams(window.location.search);
+        const selectedVehicle = queryParams.get("vehicle");
+
+        function checkout() {
+            const selectedMonths = document.getElementById("months-select").value;
+
+            // Calculate total price per month based on vehicle type
+            const pricePerMonthNormal = 3000;
+            const pricePerMonthElectric = 3500;
+            const totalPricePerMonth = selectedVehicle === "electric" ? pricePerMonthElectric : pricePerMonthNormal;
+
+            const totalPrice = selectedMonths * totalPricePerMonth;
+
+            window.location.href = `checkout.html?vehicle=${selectedVehicle}&time=${selectedMonths} months&totalPrice=${totalPrice}`;
+        }
+    </script>
+</body>
+</html>

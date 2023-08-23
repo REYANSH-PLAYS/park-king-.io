@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Park-King - Choose Hours</title>
+</head>
+<body>
+    <div class="container">
+        <h2>Choose the number of hours:</h2>
+        <select id="hours-select">
+            <option value="1">1 hour</option>
+            <option value="2">2 hours</option>
+            <option value="3">3 hours</option>
+            <option value="4">4 hours</option>
+            <option value="5">5 hours</option>
+            <option value="6">6 hours</option>
+            <option value="7">7 hours</option>
+            <option value="8">8 hours</option>
+            <option value="9">9 hours</option>
+            <option value="10">10 hours</option>
+            <option value="11">11 hours</option>
+            <option value="12">12 hours</option>
+            <!-- Add more options if needed -->
+        </select>
+        <button class="next-button" onclick="checkout()">Checkout</button>
+    </div>
+
+    <script>
+        function checkout() {
+            const selectedHours = document.getElementById("hours-select").value;
+            const queryParams = new URLSearchParams(window.location.search);
+            const selectedVehicle = queryParams.get("vehicle");
+
+            const pricePerHour = 80;
+            const totalPrice = selectedHours * pricePerHour;
+
+            window.location.href = `checkout.html?vehicle=${selectedVehicle}&time=${selectedHours} hours&totalPrice=${totalPrice}`;
+        }
+    </script>
+</body>
+</html>
